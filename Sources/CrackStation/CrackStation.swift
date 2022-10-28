@@ -17,9 +17,9 @@ public class CrackStation: Decrypter {
         }
     }
 
-    enum MyError: Error {
-        case runtimeError(String)
-    }
+    //enum MyError: Error {
+    //    case runtimeError(String)
+    //}
 
     public func decrypt(shaHash: String) -> String? {
         //prefilter
