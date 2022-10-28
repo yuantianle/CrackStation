@@ -2,7 +2,7 @@ import XCTest
 @testable import CrackStation
 
 final class CrackStationTests: XCTestCase {
-    // legal input
+    // single test
     func testExample_c() throws {
         XCTAssertEqual("c", CrackStation().decrypt(shaHash: "84a516841ba77a5b4648de2cd0dfcb30ea46dbb4"))
     }
@@ -12,32 +12,6 @@ final class CrackStationTests: XCTestCase {
     func testExample_7() throws {
         XCTAssertEqual("7", CrackStation().decrypt(shaHash: "902ba3cda1883801594b6e1b452790cc53948fda"))
     }
-    // illegal input
-    func testExample_i_l39() throws {
-        XCTAssertEqual(nil, CrackStation().decrypt(shaHash: "902ba3cda1883801594b6e1b452790cc53948fd"))
-    }
-    func testExample_i_l41() throws {
-        XCTAssertEqual(nil, CrackStation().decrypt(shaHash: "902ba3cda1883801594b6e1b452790cc53948fdak"))
-    }
-    func testExample_i_10() throws {
-        XCTAssertEqual(nil, CrackStation().decrypt(shaHash: "b1d5781111d84f7b3fe45a0852e59758cd7a87e5"))
-    }
-    func testExample_i_null() throws {
-        XCTAssertEqual(nil, CrackStation().decrypt(shaHash: ""))
-    }
-    func testExample_i_other1() throws {
-        XCTAssertEqual(nil, CrackStation().decrypt(shaHash: "!"))
-    }
-    func testExample_i_other2() throws {
-        XCTAssertEqual(nil, CrackStation().decrypt(shaHash: "-902ba3cda1883801594b6e1b452790cc53948fd"))
-    }
-    func testExample_i_other3() throws {
-        XCTAssertEqual(nil, CrackStation().decrypt(shaHash: "?"))
-    }
-    func testExample_i_other4() throws {
-        XCTAssertEqual(nil, CrackStation().decrypt(shaHash: "902ba3cda1883801594b6e1b452790cc53948fdA"))
-    }
-    // edge case
     func testExample_e_a() throws {
         XCTAssertEqual("a", CrackStation().decrypt(shaHash: "86f7e437faa5a7fce15d1ddcb9eaeaea377667b8"))
     }
@@ -55,6 +29,60 @@ final class CrackStationTests: XCTestCase {
     }
     func testExample_e_9() throws {
         XCTAssertEqual("9", CrackStation().decrypt(shaHash: "0ade7c2cf97f75d009975f4d720d1fa6c19f4897"))
+    }
+    // legal input
+    func testExample_c1() throws {
+        XCTAssertEqual("c1", CrackStation().decrypt(shaHash: "2f22765d04931a078909145ca628d2264c852d7d"))
+    }
+    func testExample_9K() throws {
+        XCTAssertEqual("9K", CrackStation().decrypt(shaHash: "c237c2a7178bc1e11730f27b87eee25a1f96eb01"))
+    }
+    func testExample_00() throws {
+        XCTAssertEqual("00", CrackStation().decrypt(shaHash: "fb96549631c835eb239cd614cc6b5cb7d295121a"))
+    }
+    // illegal input
+    func testExample_i_339() throws {
+        XCTAssertEqual(nil, CrackStation().decrypt(shaHash: "6c41101fe24a8f80c8cb51781f9e9ecf8c7a4d39"))
+    }
+    func testExample_i_lL1() throws {
+        XCTAssertEqual(nil, CrackStation().decrypt(shaHash: "b57550586e79a5119208d82f592afa2fec833e7f"))
+    }
+    func testExample_i_neg10() throws {
+        XCTAssertEqual(nil, CrackStation().decrypt(shaHash: "35c0ba310bf18ad1a4c2544a19cee254ca5d900f"))
+    }
+    func testExample_i_null() throws {
+        XCTAssertEqual(nil, CrackStation().decrypt(shaHash: ""))
+    }
+    func testExample_i_other1() throws {
+        XCTAssertEqual(nil, CrackStation().decrypt(shaHash: "!"))
+    }
+    func testExample_i_other2() throws {
+        XCTAssertEqual(nil, CrackStation().decrypt(shaHash: "-902ba3cda1883801594b6e1b452790cc53948fd"))
+    }
+    func testExample_i_other3() throws {
+        XCTAssertEqual(nil, CrackStation().decrypt(shaHash: "?"))
+    }
+    func testExample_i_other4() throws {
+        XCTAssertEqual(nil, CrackStation().decrypt(shaHash: "902ba3cda1883801594b6e1b452790cc53948fdA"))
+    }
+    // edge case
+    func testExample_e_aa() throws {
+        XCTAssertEqual("aa", CrackStation().decrypt(shaHash: "e0c9035898dd52fc65c41454cec9c4d2611bfb37"))
+    }
+    func testExample_e_zz() throws {
+        XCTAssertEqual("zz", CrackStation().decrypt(shaHash: "d7dacae2c968388960bf8970080a980ed5c5dcb7"))
+    }
+    func testExample_e_AA() throws {
+        XCTAssertEqual("AA", CrackStation().decrypt(shaHash: "801c34269f74ed383fc97de33604b8a905adb635"))
+    }
+    func testExample_e_ZZ() throws {
+        XCTAssertEqual("ZZ", CrackStation().decrypt(shaHash: "d308e0b2d36c5d2420869c6bf112e31e8d5b0d52"))
+    }
+    func testExample_e_00() throws {
+        XCTAssertEqual("00", CrackStation().decrypt(shaHash: "fb96549631c835eb239cd614cc6b5cb7d295121a"))
+    }
+    func testExample_e_99() throws {
+        XCTAssertEqual("99", CrackStation().decrypt(shaHash: "9a79be611e0267e1d943da0737c6c51be67865a0"))
     }
 
     
