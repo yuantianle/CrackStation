@@ -21,23 +21,26 @@ public class CrackStation: Decrypter {
         case runtimeError(String)
     }
 
-    public func decrypt(shaHash: String) throws -> String? {
+    public func decrypt(shaHash: String) -> String? {
         //prefilter
         if (shaHash.count != 40) {
         // we are about to actually throw an error:
-            throw MyError.runtimeError("Illegal length.")
+            //throw MyError.runtimeError("Illegal length.")
+            return nil
         }
         else if (shaHash.rangeOfCharacter(from: CharacterSet.uppercaseLetters) != nil) {
         // we are about to actually throw an error:
-            throw MyError.runtimeError("include uppercase.")
+            //throw MyError.runtimeError("include uppercase.")
+            return nil
         }
         else if (shaHash.rangeOfCharacter(from: CharacterSet.alphanumerics.inverted) != nil) {
         // we are about to actually throw an error:
-            throw MyError.runtimeError("include illegal char.")
+            //throw MyError.runtimeError("include illegal char.")
+            return nil
         }
         else {
-            let lookupTable = try CrackStation.loadDictionaryFromDisk()
-            return lookupTable[shaHash]
+            let lookupTable = try? CrackStation.loadDictionaryFromDisk()
+            return lookupTable?[shaHash]
         }
     }
 
