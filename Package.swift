@@ -30,7 +30,7 @@ let package = Package(
         .target(
             name: "CrackStation",
             resources: [
-                .process("hash_data2.json")
+                .process("hash_data3.json")
             ]),
         .testTarget(
             name: "CrackStationTests",

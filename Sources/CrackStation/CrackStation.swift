@@ -2,10 +2,14 @@ import Foundation
 
 public class CrackStation: Decrypter {
 
-    public required init(){}
+    private let Hash: [String : String]
+
+    public required init(){
+        self.Hash = try! CrackStation.loadDictionaryFromDisk()
+    }
 
     static func loadDictionaryFromDisk() throws -> [String : String] {
-        guard let path = Bundle.module.url(forResource: "hash_data2", withExtension: "json") else { return [:] }
+        guard let path = Bundle.module.url(forResource: "hash_data3", withExtension: "json") else { return [:] }
 
         let data = try Data(contentsOf: path)
         let jsonResult = try JSONSerialization.jsonObject(with: data)
@@ -23,7 +27,7 @@ public class CrackStation: Decrypter {
 
     public func decrypt(shaHash: String) -> String? {
         //prefilter
-        if (shaHash.count != 40) {
+        if (shaHash.count != 40 && shaHash.count != 64) {
         // we are about to actually throw an error:
             //throw MyError.runtimeError("Illegal length.")
             return nil
@@ -39,8 +43,8 @@ public class CrackStation: Decrypter {
             return nil
         }
         else {
-            let lookupTable = try? CrackStation.loadDictionaryFromDisk()
-            return lookupTable?[shaHash]
+            //let lookupTable = try? CrackStation.loadDictionaryFromDisk()
+            return Hash[shaHash]
         }
     }
 
