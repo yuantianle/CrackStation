@@ -1,6 +1,6 @@
 # CrackStation, a Decrypter implementation
 
-DO: A library that can decrypt hash passwords with `SHA-1` and `SHA-256` algorithms in the range of `[A-Za-z0-9?!]{1,3}`.
+A library that can decrypt hash passwords with `SHA-1` and `SHA-256` algorithms in the range of `[A-Za-z0-9?!]{1,3}`.
 
 ## Overview
 
@@ -12,7 +12,7 @@ DO: A library that can decrypt hash passwords with `SHA-1` and `SHA-256` algorit
 
 ## Mission Statement
 
-DO: The library does not tend to help you to be more convenient as a hacker. Instead, it is a good material to help you to learn **Swift testing** and **Algorithm speed optimization**.
+**NOTE:** The library does not tend to help you to be more convenient as a hacker. Instead, it is a good material to help you to learn **Swift testing** and **Algorithm speed optimization**.
 
 ### `Decrypter` cracks unsalted hashes.
 
