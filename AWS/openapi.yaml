@@ -1,0 +1,29 @@
+openapi: "3.0.1"
+info:
+  title: "Crack Station API (GET only)"
+  version: "2022-11-29 22:44:06UTC"
+servers:
+- url: "https://kq7nnt9fv0.execute-api.us-east-1.amazonaws.com/{basePath}"
+  variables:
+    basePath:
+      default: ""
+paths:
+  /password/{id}:
+    get:
+      responses:
+        default:
+          description: "Default response for GET /password/{id}"
+      x-amazon-apigateway-integration:
+        payloadFormatVersion: "2.0"
+        type: "aws_proxy"
+        httpMethod: "POST"
+        uri: "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:681772710279:function:Decryptor_Function/invocations"
+        connectionType: "INTERNET"
+    parameters:
+    - name: "id"
+      in: "path"
+      description: "Generated path parameter for id"
+      required: true
+      schema:
+        type: "string"
+x-amazon-apigateway-importexport-version: "1.0"
